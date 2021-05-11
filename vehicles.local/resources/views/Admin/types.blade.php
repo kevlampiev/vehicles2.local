@@ -25,8 +25,8 @@
                 <tr>
                     <th scope="row">{{$type->id}}</th>
                     <td>{{$type->name}}</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td>&#9998;</td>
+                    <td>&#10008;</td>
                 </tr>
                 @empty
                     <p>Нет записей</p>

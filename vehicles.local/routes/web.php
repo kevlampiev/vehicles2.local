@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\VehicleTypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,6 @@ Route::group([
 ],
 function() {
     Route::get('/',[IndexController::class, 'index']);
+    Route::get('/types',[VehicleTypesController::class, 'index'])->name('admin.vehicleTypes');
 });
 

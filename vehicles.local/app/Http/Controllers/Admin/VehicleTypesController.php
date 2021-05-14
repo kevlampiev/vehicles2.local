@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\VehicleTypeRequest;
 use App\Models\VehicleType;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class VehicleTypesController extends \Illuminate\Routing\Controller
         }
     }
 
-    public function editType(Request $request, VehicleType $type)
+    public function editType(VehicleTypeRequest $request, VehicleType $type)
     {
         if ($request->isMethod('post')) {
             $type->fill($request->only('name'));

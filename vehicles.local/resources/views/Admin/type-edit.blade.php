@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h3> @if ($type->d) Изменение типа @else Добавить новый тип @endif</h3>
+    <h3> @if ($type->id) Изменение типа @else Добавить новый тип @endif</h3>
     <form action="{{route($route, $type->id)}}" method="POST">
         @csrf
         <form>

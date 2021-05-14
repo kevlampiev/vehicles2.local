@@ -11,4 +11,39 @@ class VehicleTypesController extends \Illuminate\Routing\Controller
     {
         return view('Admin/types', ['types' => VehicleType::all()]);
     }
+
+    public function addType(Request $request)
+    {
+        $type = new VehicleType();
+        if ($request->isMethod('post')) {
+            $type->fill($request->only('name'));
+            $type->save();
+            return redirect()->route('admin.vehicleTypes');
+        } else {
+            return view('Admin/type-edit', [
+                'type' => $type,
+                'route' => 'admin.addType',
+            ]);
+        }
+    }
+
+    public function editType(Request $request, VehicleType $type)
+    {
+        if ($request->isMethod('post')) {
+            $type->fill($request->only('name'));
+            $type->save();
+            return redirect()->route('admin.vehicleTypes');
+        } else {
+            return view('Admin/type-edit', [
+                'type' => $type,
+                'route' => 'admin.editType',
+            ]);
+        }
+    }
+
+    public function deleteType(VehicleType $type)
+    {
+        $type->delete();
+        return redirect()->route('admin.vehicleTypes');
+    }
 }

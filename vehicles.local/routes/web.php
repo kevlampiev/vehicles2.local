@@ -27,5 +27,8 @@ Route::group([
 function() {
     Route::get('/',[IndexController::class, 'index']);
     Route::get('/types',[VehicleTypesController::class, 'index'])->name('admin.vehicleTypes');
+    Route::match(['post', 'get'],'/types/add',[VehicleTypesController::class, 'addType'])->name('admin.addType');
+    Route::match(['post', 'get'],'/types/{type}/edit',[VehicleTypesController::class, 'editType'])->name('admin.editType');
+    Route::match(['post', 'get'], '/types/{type}/delete',[VehicleTypesController::class, 'deleteType'])->name('admin.deleteType');
 });
 
